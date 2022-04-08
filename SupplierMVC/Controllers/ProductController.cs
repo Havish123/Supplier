@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SupplierAPI.Models;
+using SupplierMVC.Models;
 using SupplierMVC.Services;
 
 namespace SupplierMVC.Controllers
@@ -10,6 +11,7 @@ namespace SupplierMVC.Controllers
         public ProductController(ISupplierService services)
         {
             _services = services;
+            
 
         }
         public async Task<IActionResult> Index()
@@ -31,9 +33,29 @@ namespace SupplierMVC.Controllers
 
             return View(products);
         }
-
-        public IActionResult Create()
+        [HttpGet]
+        public async Task<IActionResult> Create()
         {
+            ProductCreateModel model= new ProductCreateModel();
+            model.productData=new ProductData();
+            model.brands= await _services.GetBrandData();
+            model.categories = await _services.GetCategoryData();
+            model.suppliers= await _services.GetSupplierData(); 
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Create(ProductCreateModel product)
+        {
+            //HttpClient client = _api.Initial();
+
+            //var postTask = client.PostAsJsonAsync<StudentData>("api/student", studentData);
+            //postTask.Wait();
+            //var result = postTask.Result;
+            //if (result.IsSuccessStatusCode)
+            //{
+            //    return RedirectToAction("Index");
+            //}
             return View();
         }
     }
