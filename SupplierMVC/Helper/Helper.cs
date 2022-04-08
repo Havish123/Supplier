@@ -1,6 +1,6 @@
 ﻿namespace StudentMVC.Helper
 {
-    public class SupplierAPI
+    public class Supplier_API
     {
         public HttpClient Initial()
         {

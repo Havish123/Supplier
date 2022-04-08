@@ -1,12 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SupplierMVC.Services;
 
 namespace SupplierMVC.Controllers
 {
     public class ProductController : Controller
     {
-        public IActionResult Index()
+        private readonly ISupplierService _services;
+        public ProductController(ISupplierService services)
         {
-            return View();
+            _services = services;
+
+        }
+        public async Task<IActionResult> Index()
+        {
+            //var data = await _services.GetProductData();
+            return View(await _services.GetProductData());
         }
     }
 }

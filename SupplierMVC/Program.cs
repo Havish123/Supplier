@@ -1,8 +1,11 @@
+using SupplierMVC.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<ISupplierService, SupplierService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
