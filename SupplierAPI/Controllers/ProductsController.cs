@@ -31,7 +31,7 @@ namespace SupplierAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetQuestion(int id)
+        public async Task<ActionResult<Product>> GetProducts(int id)
         {
             return await _services.Get(id);
         }
@@ -39,7 +39,7 @@ namespace SupplierAPI.Controllers
         //// PUT: api/Questions/5
         //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutQuestion(int id, Product product)
+        public async Task<IActionResult> PutProducts(int id, Product product)
         {
             if (id != product.product_Id)
             {
@@ -52,16 +52,16 @@ namespace SupplierAPI.Controllers
         //// POST: api/Questions
         //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Product>> PostQuestion(Product product)
+        public async Task<ActionResult<Product>> PostProducts(Product product)
         {
             var newProduct = await _services.Create(product);
-            return CreatedAtAction(nameof(GetQuestion), new { id = newProduct.product_Id }, newProduct);
+            return CreatedAtAction(nameof(GetProducts), new { id = newProduct.product_Id }, newProduct);
 
         }
 
         //// DELETE: api/Questions/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteQuestion(int id)
+        public async Task<IActionResult> DeleteProducts(int id)
         {
             var product = await _services.Get(id);
             if (product == null)
