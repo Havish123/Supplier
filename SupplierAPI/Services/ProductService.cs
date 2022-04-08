@@ -1,4 +1,6 @@
-﻿using SupplierAPI.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using SupplierAPI.Data;
+using SupplierAPI.Models;
 
 namespace SupplierAPI.Services
 {
@@ -15,72 +17,49 @@ namespace SupplierAPI.Services
     }
     public class ProductService : IProductService
     {
-        //private readonly StudentDBContext _context;
-        //public StudentService(StudentDBContext context)
-        //{
-        //    _context = context;
-        //}
-        //public async Task<Student> Create(Student student)
-        //{
-        //    _context.Students.Add(student);
-        //    await _context.SaveChangesAsync();
-        //    return student;
-        //}
-
-        //public async Task Delete(int id)
-        //{
-        //    var student = await _context.Students.FindAsync(id);
-        //    if (student != null)
-        //    {
-        //        _context.Students.Remove(student);
-        //        await _context.SaveChangesAsync();
-        //    }
-
-        //}
-
-        //public async Task<Student> Get(int id)
-        //{
-        //    var student = await _context.Students.FindAsync(id);
-        //    if (student != null)
-        //    {
-        //        return student;
-        //    }
-        //    return null;
-        //}
-
-        //public async Task<IEnumerable<Student>> Get()
-        //{
-        //    return await _context.Students.ToListAsync();
-        //}
-
-        //public async Task Update(Student student)
-        //{
-        //    _context.Entry(student).State = EntityState.Modified;
-        //    await _context.SaveChangesAsync();
-        //}
-        public Task<Product> Create(Product product)
+        private readonly SupplierDBContext _context;
+        public ProductService(SupplierDBContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+        public async Task<Product> Create(Product product)
+        {
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+            return product;
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            var product = await _context.Products.FindAsync(id);
+            if (product != null)
+            {
+                _context.Products.Remove(product);
+                await _context.SaveChangesAsync();
+            }
+
         }
 
-        public Task<Product> Get(int id)
+        public async Task<Product> Get(int id)
         {
-            throw new NotImplementedException();
+            var product = await _context.Products.FindAsync(id);
+            if (product != null)
+            {
+                return product;
+            }
+            return null;
         }
 
-        public Task<IEnumerable<Product>> Get()
+        public async Task<IEnumerable<Product>> Get()
         {
-            throw new NotImplementedException();
+            return await _context.Products.ToListAsync();
+           
         }
 
-        public Task Update(Product product)
+        public async Task Update(Product product)
         {
-            throw new NotImplementedException();
+            _context.Entry(product).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
         }
     }
 }

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SupplierAPI.Data;
+using SupplierAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddDbContext<SupplierDBContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
-//builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();

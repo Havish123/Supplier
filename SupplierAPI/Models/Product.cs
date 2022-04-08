@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace SupplierAPI.Models
 {
@@ -11,6 +12,8 @@ namespace SupplierAPI.Models
         public int SupplierId { get; set; }
         public int CategoryId { get; set; }
         public double product_price { get; set; }
-        public Inventory inventory { get; set; }
+
+       
+        public virtual Inventory inventory { get; set; }
     }
 }
