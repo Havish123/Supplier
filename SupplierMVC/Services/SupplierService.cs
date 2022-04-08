@@ -9,6 +9,11 @@ namespace SupplierMVC.Services
     {
         public Task<List<ProductViewModel>> GetProductData();
         public Task<ProductData> GetProductData(int id);
+        public Task<List<ProductData>> GetProduct();
+        public  Task<CategoryData> GetCategoryData(int id);
+        public  void GetSupplierData();
+        public  Task<SupplierData> GetSupplierData(int id);
+        public  Task<BrandData> GetBrandData(int id);
     }
     public class SupplierService : ISupplierService
     {
@@ -32,14 +37,25 @@ namespace SupplierMVC.Services
             {
                 ProductViewModel viewModel=new ProductViewModel();  
                 viewModel.product=product;
-                viewModel.Supplier =await GetSupplierData(product.SupplierId);
-                viewModel.Brand = await GetBrandData(product.BrandId);
-                viewModel.Category = await GetCategoryData(product.CategoryId);
+                //viewModel.Supplier =await GetSupplierData(product.SupplierId);
+                //viewModel.Brand = await GetBrandData(product.BrandId);
+                //viewModel.Category = await GetCategoryData(product.CategoryId);
                 products.Add(viewModel);
             });
             return products;
         }
-        
+        public async Task<List<ProductData>> GetProduct()
+        {
+            List<ProductData> product = new List<ProductData>();
+            HttpClient client = _api.Initial();
+            HttpResponseMessage res = await client.GetAsync(_productApi);
+            if (res.IsSuccessStatusCode)
+            {
+                var result = res.Content.ReadAsStringAsync().Result;
+                product = JsonConvert.DeserializeObject<List<ProductData>>(result);
+            }
+            return product;
+        }
         public async Task<ProductData> GetProductData(int id)
         {
             ProductData product=new ProductData();
