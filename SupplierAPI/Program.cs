@@ -13,6 +13,7 @@ builder.Services.AddDbContext<SupplierDBContext>(o => o.UseSqlServer(builder.Con
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ISupplierService, SupplierService>();
+builder.Services.AddScoped<IBrandService, BrandService>();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
