@@ -11,6 +11,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddDbContext<SupplierDBContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ISupplierService, SupplierService>();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();

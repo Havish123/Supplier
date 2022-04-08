@@ -14,24 +14,24 @@ namespace SupplierAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class SuppliersController : ControllerBase
     {
-        private readonly IProductService _services;
-        public ProductsController(IProductService services )
+        private readonly ISupplierService _services;
+        public SuppliersController(ISupplierService services)
         {
             _services = services;
         }
-        
+
 
         // GET: api/Products
         [HttpGet]
-        public async Task<IEnumerable<Product>> GetProducts()
+        public async Task<IEnumerable<Supplier>> GetSuppliers()
         {
             return await _services.Get();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetQuestion(int id)
+        public async Task<ActionResult<Supplier>> GetSupplier(int id)
         {
             return await _services.Get(id);
         }
@@ -39,39 +39,37 @@ namespace SupplierAPI.Controllers
         //// PUT: api/Questions/5
         //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutQuestion(int id, Product product)
+        public async Task<IActionResult> PutSupplier(int id, Supplier supplier)
         {
-            if (id != product.product_Id)
+            if (id != supplier.supplierId)
             {
                 return BadRequest();
             }
-            await _services.Update(product);
+            await _services.Update(supplier);
             return NoContent();
         }
 
         //// POST: api/Questions
         //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Product>> PostQuestion(Product product)
+        public async Task<ActionResult<Product>> PostSupplier(Supplier supplier)
         {
-            var newProduct = await _services.Create(product);
-            return CreatedAtAction(nameof(GetQuestion), new { id = newProduct.product_Id }, newProduct);
+            var newSupplier = await _services.Create(supplier);
+            return CreatedAtAction(nameof(GetSupplier), new { id = newSupplier.supplierId }, newSupplier);
 
         }
 
         //// DELETE: api/Questions/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteQuestion(int id)
+        public async Task<IActionResult> DeleteSupplier(int id)
         {
-            var product = await _services.Get(id);
-            if (product == null)
+            var supplier = await _services.Get(id);
+            if (supplier == null)
             {
                 return NotFound();
             }
             await _services.Delete(id);
             return NoContent();
         }
-
-
     }
 }

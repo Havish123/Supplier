@@ -12,8 +12,6 @@ namespace SupplierAPI.Services
         public Task<IEnumerable<Product>> Get();
         public Task Update(Product product);
 
-
-
     }
     public class ProductService : IProductService
     {
