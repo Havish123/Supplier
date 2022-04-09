@@ -53,15 +53,7 @@ namespace SupplierMVC.Controllers
         [HttpPost]
         public IActionResult Create(ProductCreateModel product)
         {
-            //HttpClient client = _api.Initial();
-
-            //var postTask = client.PostAsJsonAsync<StudentData>("api/student", studentData);
-            //postTask.Wait();
-            //var result = postTask.Result;
-            //if (result.IsSuccessStatusCode)
-            //{
-            //    return RedirectToAction("Index");
-            //}
+            
             return View();
         }
 
@@ -77,25 +69,18 @@ namespace SupplierMVC.Controllers
         [HttpPost]
         public IActionResult Edit(SupplierData supplier)
         {
-            //HttpClient client = _api.Initial();
-
-            //var postTask = client.PutAsJsonAsync<StudentData>($"api/student/{studentData.Id}", studentData);
-            //postTask.Wait();
-            //var result = postTask.Result;
-            //if (result.IsSuccessStatusCode)
-            //{
-            //    return RedirectToAction("Index");
-            //}
+            
             return View();
         }
 
         public async Task<IActionResult> Delete(int id)
         {
-            //var student = new StudentData();
-            //HttpClient client = _api.Initial();
-            //HttpResponseMessage res = await client.DeleteAsync($"api/student/{id}");
-            return RedirectToAction("Index");
-
+            bool res = await _services.DeleteProductData(id);
+            if (res)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
         }
     }
 }

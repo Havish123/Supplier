@@ -63,9 +63,13 @@ namespace SupplierMVC.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            
-            return RedirectToAction("Index");
-
+            bool res = await _services.DeleteSupplierData(id);
+            if (res)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
         }
+
     }
 }

@@ -40,5 +40,15 @@ namespace SupplierMVC.Controllers
             var category = await _services.GetCategoryData(id);
             return View(category);
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            bool res = await _services.DeleteCategoryData(id);
+            if (res)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
     }
 }
