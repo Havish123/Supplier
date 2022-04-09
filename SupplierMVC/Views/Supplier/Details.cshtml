@@ -40,41 +40,11 @@
         </table>
     </div>
     <div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a><br /><br />
-</div>
-    <h2>Supplier Product Details</h2>
-    <div class="table-responsive">
-        <table class="table table-bordered">
-            <thead>
-                <th>Product ID</th>
-                <th>Product Name</th>
-                <th>Stocks Available</th>
-                <th>Product Price</th>
-            </thead>
-            <tbody>
-                @if (Model.Products.Count==0)
-                {
-                    <tr style="text-align:center;"><td colspan="4">No Product Available</td></tr>
-                }
-                else
-                {
-                    @foreach(var item in Model.Products)
-                    {
-                    
-                        <tr style="text-align:center;">
-                            <td>@Html.DisplayFor(modelItem => item.product_Id)</td>
-                            <td>@Html.DisplayFor(modelItem => item.product_Name)</td>
-                            <td>@Html.DisplayFor(modelItem => item.inventory.stock_product_quantity)</td>
-                            <td>@Html.DisplayFor(modelItem => item.product_price)</td>
-                        </tr>
-                    
-                    }
-                }
-                
-            </tbody>
-        </table>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.supplierId  }) |
+        <a asp-action="Index">Back to List</a><br /><br />
     </div>
+    <h2>Supplier Product Details</h2>
+    <partial name="_ProductViewPartial" model="Model.Products" />
     
 </div>
 

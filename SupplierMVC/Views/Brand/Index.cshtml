@@ -5,11 +5,12 @@
 }
 
 <h1>Index</h1>
-
-<p>
+<div>
+    <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<div class="table-responsive">
+    <table class="table table-bordered">
     <thead>
         <tr>
             <th>
@@ -22,20 +23,24 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.BrandId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BrandName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.BrandId  }) |
-                @Html.ActionLink("Details", "Details", new { id=item.BrandId  }) |
-                @Html.ActionLink("Delete", "Delete", new {  id=item.BrandId  })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BrandId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BrandName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.BrandId  }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.BrandId  }) |
+                    @Html.ActionLink("Delete", "Delete", new {  id=item.BrandId  })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+</div>
+</div>
+

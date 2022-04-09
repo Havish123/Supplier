@@ -16,5 +16,11 @@ namespace SupplierMVC.Controllers
         {
             return View(await _services.GetCategoryData());
         }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            var category = await _services.GetCategoryData(id);
+            return View(category);
+        }
     }
 }

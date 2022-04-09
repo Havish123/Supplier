@@ -15,8 +15,24 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = F:\VS Projects\Backend\SupplierAPI\SupplierMVC
 build_property._RazorSourceGeneratorDebug = 
 
+[F:/VS Projects/Backend/SupplierAPI/SupplierMVC/Views/Brand/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/VS Projects/Backend/SupplierAPI/SupplierMVC/Views/Brand/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/VS Projects/Backend/SupplierAPI/SupplierMVC/Views/Brand/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/VS Projects/Backend/SupplierAPI/SupplierMVC/Views/Brand/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/VS Projects/Backend/SupplierAPI/SupplierMVC/Views/Category/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/VS Projects/Backend/SupplierAPI/SupplierMVC/Views/Category/Index.cshtml]
@@ -41,6 +57,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/VS Projects/Backend/SupplierAPI/SupplierMVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/VS Projects/Backend/SupplierAPI/SupplierMVC/Views/Shared/_ProductViewPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Qcm9kdWN0Vmlld1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/VS Projects/Backend/SupplierAPI/SupplierMVC/Views/Shared/_ValidationScriptsPartial.cshtml]

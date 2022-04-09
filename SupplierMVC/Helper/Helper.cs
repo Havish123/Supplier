@@ -1,4 +1,4 @@
-﻿namespace StudentMVC.Helper
+﻿namespace SupplierMVC.Helper
 {
     public class Supplier_API
     {

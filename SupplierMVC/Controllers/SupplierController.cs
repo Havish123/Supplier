@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using StudentMVC.Helper;
+using SupplierMVC.Helper;
 using SupplierMVC.Models;
 using SupplierMVC.Services;
 

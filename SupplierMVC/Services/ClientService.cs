@@ -23,7 +23,7 @@ namespace SupplierMVC.Services
         #endregion
 
         #region CreateOrPostData
-
+        public bool CreateBrandData(BrandData brand);
 
         #endregion
 
@@ -165,7 +165,45 @@ namespace SupplierMVC.Services
 
 
         #region CreateData
+        public bool CreateBrandData(BrandData brand)
+        {
+            HttpClient client = _api.Initial();
 
+            var postTask = client.PostAsJsonAsync<BrandData>(_brandApi, brand);
+            postTask.Wait();
+            var result = postTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool CreateCategoryData(CategoryData category)
+        {
+            HttpClient client = _api.Initial();
+
+            var postTask = client.PostAsJsonAsync<CategoryData>(_categoryApi, category);
+            postTask.Wait();
+            var result = postTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool CreateSupplierData(SupplierData supplier)
+        {
+            HttpClient client = _api.Initial();
+
+            var postTask = client.PostAsJsonAsync<SupplierData>(_supplierApi, supplier);
+            postTask.Wait();
+            var result = postTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
 
         #endregion
 
