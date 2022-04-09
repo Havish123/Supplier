@@ -26,7 +26,15 @@ namespace SupplierMVC.Services
         public bool CreateBrandData(BrandData brand);
         public bool CreateSupplierData(SupplierData supplier);
         public bool CreateCategoryData(CategoryData category);
+        public bool CreateProductData(ProductData product);
 
+        #endregion
+
+        #region EditPostData
+        public bool EditBrandData(BrandData brand);
+        public bool EditSupplierData(SupplierData supplier);
+        public bool EditCategoryData(CategoryData category);
+        public bool EditProductData(ProductData product);
         #endregion
 
     }
@@ -99,9 +107,6 @@ namespace SupplierMVC.Services
 
         #endregion
 
-
-
-
         #region GetParticularData
 
         //Get Particular Product Data
@@ -165,8 +170,21 @@ namespace SupplierMVC.Services
 
         #endregion
 
-
         #region CreateData
+
+        public bool CreateProductData(ProductData product)
+        {
+            HttpClient client = _api.Initial();
+
+            var postTask = client.PostAsJsonAsync<ProductData>(_productApi, product);
+            postTask.Wait();
+            var result = postTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
         public bool CreateBrandData(BrandData brand)
         {
             HttpClient client = _api.Initial();
@@ -208,6 +226,66 @@ namespace SupplierMVC.Services
         }
 
         #endregion
+
+        #region Edit Data
+
+        public bool EditBrandData(BrandData brand)
+        {
+            HttpClient client = _api.Initial();
+
+            var postTask = client.PutAsJsonAsync<BrandData>($"{_brandApi}/{brand.BrandId}", brand);
+            postTask.Wait();
+            var result = postTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool EditSupplierData(SupplierData supplier)
+        {
+            HttpClient client = _api.Initial();
+
+            var postTask = client.PutAsJsonAsync<SupplierData>($"{_supplierApi}/{supplier.supplierId}", supplier);
+            postTask.Wait();
+            var result = postTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool EditCategoryData(CategoryData category)
+        {
+            HttpClient client = _api.Initial();
+
+            var postTask = client.PutAsJsonAsync<CategoryData>($"{_categoryApi}/{category.CategoryId}", category);
+            postTask.Wait();
+            var result = postTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool EditProductData(ProductData product)
+        {
+            HttpClient client = _api.Initial();
+
+            var postTask = client.PutAsJsonAsync<ProductData>($"{_productApi}/{product.product_Id}", product);
+            postTask.Wait();
+            var result = postTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
+        #endregion
+
 
     }
 

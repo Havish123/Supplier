@@ -48,10 +48,15 @@ namespace SupplierMVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit()
+        public async Task<IActionResult> Edit(BrandData brand)
         {
-            var brand = await _services.GetBrandData();
-            return View(brand);
+            brand.Products= new List<ProductData>();
+            var result = _services.EditBrandData(brand);
+            if (result)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
         }
     }
 }
