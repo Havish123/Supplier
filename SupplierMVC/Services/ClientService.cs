@@ -294,7 +294,6 @@ namespace SupplierMVC.Services
 
         #endregion
 
-
         #region Delete Data
         public async Task<bool> DeleteProductData(int id)
         {
@@ -340,8 +339,6 @@ namespace SupplierMVC.Services
             return false;
         }
         #endregion
-
-
 
     }
 

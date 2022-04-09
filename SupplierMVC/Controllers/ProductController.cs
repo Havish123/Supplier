@@ -8,6 +8,7 @@ namespace SupplierMVC.Controllers
     public class ProductController : Controller
     {
         private readonly IClientService _services;
+        private  List<ProductViewModel> _productCreateModels { get; set; }
         public ProductController(IClientService services)
         {
             _services = services;
@@ -16,7 +17,7 @@ namespace SupplierMVC.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            List<ProductViewModel> products = new List<ProductViewModel>();
+            _productCreateModels = new List<ProductViewModel>();
             List<ProductData> product = new List<ProductData>();
             product = await _services.GetProduct();
             //var data = await _services.GetProductData();
@@ -28,10 +29,10 @@ namespace SupplierMVC.Controllers
                 pvModel.Supplier= await _services.GetSupplierData(p.SupplierId);
                 pvModel.Brand= await _services.GetBrandData(p.BrandId);
                 pvModel.Category= await _services.GetCategoryData(p.CategoryId);
-                products.Add(pvModel);
+                _productCreateModels.Add(pvModel);
             }
 
-            return View(products);
+            return View(_productCreateModels);
         }
         [HttpGet]
         public async Task<IActionResult> Create()
@@ -53,8 +54,13 @@ namespace SupplierMVC.Controllers
         [HttpPost]
         public IActionResult Create(ProductCreateModel product)
         {
-            
-            return View();
+          
+            var result = _services.CreateProductData(product.productData);
+            if (result)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(_productCreateModels);
         }
 
 

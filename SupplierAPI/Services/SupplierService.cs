@@ -29,10 +29,10 @@ namespace SupplierAPI.Services
 
         public async Task Delete(int id)
         {
-            var supplier = await _context.Products.FindAsync(id);
+            var supplier = await _context.Suppliers.FindAsync(id);
             if (supplier != null)
             {
-                _context.Products.Remove(supplier);
+                _context.Suppliers.Remove(supplier);
                 await _context.SaveChangesAsync();
             }
 

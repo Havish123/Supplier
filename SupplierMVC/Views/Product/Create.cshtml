@@ -48,7 +48,7 @@
             <label asp-for="suppliers"></label>
         </div>
         <div class="col-4">
-            <select asp-for="productData.BrandId" asp-items="IEnumerableExtensions.supplierItem(Model.suppliers)" id="SupplierData" class="form-control"></select>
+            <select asp-for="productData.SupplierId" asp-items="IEnumerableExtensions.supplierItem(Model.suppliers)" id="SupplierData" class="form-control"></select>
             <span asp-validation-for="productData.SupplierId" class="text-danger"></span>
             </div></div>
     <br />
@@ -65,7 +65,7 @@
 
     <div class="form-group row">
         <div class="col-2">
-            <label asp-for="productData.inventory"></label>
+            <label asp-for="productData.inventory.stock_product_quantity"></label>
         </div>
         <div class="col-4">
             <input asp-for="productData.inventory.stock_product_quantity"  class="form-control"></input>
