@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SupplierMVC.Models;
 using SupplierMVC.Services;
 
 namespace SupplierMVC.Controllers
@@ -15,6 +16,23 @@ namespace SupplierMVC.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _services.GetCategoryData());
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(CategoryData category)
+        {
+            category.Products = new List<ProductData>();
+            var result = _services.CreateCategoryData(category);
+            if (result)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
         }
 
         public async Task<IActionResult> Details(int id)

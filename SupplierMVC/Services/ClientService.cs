@@ -1,6 +1,6 @@
 ﻿
 using Newtonsoft.Json;
-using StudentMVC.Helper;
+using SupplierMVC.Helper;
 using SupplierMVC.Models;
 
 namespace SupplierMVC.Services
@@ -24,6 +24,8 @@ namespace SupplierMVC.Services
 
         #region CreateOrPostData
         public bool CreateBrandData(BrandData brand);
+        public bool CreateSupplierData(SupplierData supplier);
+        public bool CreateCategoryData(CategoryData category);
 
         #endregion
 

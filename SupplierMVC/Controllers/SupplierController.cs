@@ -21,16 +21,30 @@ namespace SupplierMVC.Controllers
             return View(await _services.GetSupplierData());
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(SupplierData supplier)
+        {
+            supplier.Products = new List<ProductData>();
+            var result = _services.CreateSupplierData(supplier);
+            if (result)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
         public async Task<IActionResult> Details(int id)
         {
             var suppliers = await _services.GetSupplierData(id);
             return View(suppliers);
         }
 
-        public IActionResult Create(SupplierData supplier)
-        {
-            return View();
-        }
+       
 
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
