@@ -7,4 +7,54 @@
     <div>
         <img src="./image/home_banner.jpg" class="img-fluid" alt="...">
     </div>
+    <hr />
+    <div class="row">
+        <div class="col-6">
+            <img src="./image/banner1.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Products</h5>
+                
+                <div class="row d-flex justify-content-between">
+                    <a asp-controller="Product" asp-action="Create"  class="btn col-4 btn-success">Create</a>
+                    <a asp-controller="Product" asp-action="Index" class="btn col-4 btn-warning">List of Products</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-6">
+            <img src="./image/banner2.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Suppliers</h5>
+                
+                 <div class="row d-flex justify-content-between">
+                    <a asp-controller="Supplier" asp-action="Create" class="btn col-4 btn-success">Create</a>
+                    <a asp-controller="Supplier" asp-action="Index" class="btn col-4 btn-warning">Supplier Details</a>
+                </div>
+              </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-6">
+            <img src="./image/banner3.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Brands</h5>
+                
+                <div class="row d-flex justify-content-between">
+                   <a asp-controller="Brand" asp-action="Create" class="btn col-4 btn-success">Create</a>
+                    <a asp-controller="Brand" asp-action="Index" class="btn col-4 btn-warning">Brand Details</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-6">
+            <img src="./image/banner4.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Categories</h5>
+                
+                 <div class="row d-flex justify-content-between">
+                    <a asp-controller="Category" asp-action="Create" class="btn col-4 btn-success">Create</a>
+                    <a asp-controller="Category" asp-action="Index" class="btn col-4 btn-warning">Category Details</a>
+                </div>
+              </div>
+        </div>
+    </div>
 </div>
