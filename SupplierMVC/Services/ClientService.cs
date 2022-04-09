@@ -121,7 +121,7 @@ namespace SupplierMVC.Services
         {
             ProductData product=new ProductData();
             HttpClient client = _api.Initial();
-            HttpResponseMessage res = await client.GetAsync(_productApi);
+            HttpResponseMessage res = await client.GetAsync($"{_productApi}/{id}");
             if (res.IsSuccessStatusCode)
             {
                 var result=res.Content.ReadAsStringAsync().Result;

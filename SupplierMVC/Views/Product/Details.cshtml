@@ -1,4 +1,4 @@
-﻿@model SupplierMVC.Models.ProductViewModel
+﻿@model SupplierMVC.Models.ProductDetailsModel
 
 @{
     ViewData["Title"] = "Details";
@@ -13,28 +13,28 @@
         <table style="width:400px" class="table table-bordered">
             <tbody>
                 <tr>
-                    <td>@Html.DisplayNameFor(model => model.product.product_Id)</td>
-                    <td>@Html.DisplayFor(model => model.product.product_Id)</td>
+                    <td>@Html.DisplayNameFor(model => model.Product.product_Id)</td>
+                    <td>@Html.DisplayFor(model => model.Product.product_Id)</td>
                 </tr>
                 <tr>
-                    <td>@Html.DisplayNameFor(model => model.product.product_Name)</td>
-                    <td>@Html.DisplayFor(model => model.product.product_Name)</td>
+                    <td>@Html.DisplayNameFor(model => model.Product.product_Name)</td>
+                    <td>@Html.DisplayFor(model => model.Product.product_Name)</td>
                 </tr>
                 <tr>
-                    <td>@Html.DisplayNameFor(model => model.product.product_price)</td>
-                    <td>@Html.DisplayFor(model => model.product.product_price)</td>
+                    <td>@Html.DisplayNameFor(model => model.Product.product_price)</td>
+                    <td>@Html.DisplayFor(model => model.Product.product_price)</td>
                 </tr>
                 <tr>
                     <td>@Html.DisplayNameFor(model => model.Supplier.supplierName)</td>
                     <td>@Html.DisplayFor(model => model.Supplier.supplierName)</td>
                 </tr>
                 <tr>
-                    <td>@Html.DisplayNameFor(model => model.Category.CategoryName)</td>
-                    <td>@Html.DisplayFor(model => model.Category.CategoryName)</td>
+                    <td>@Html.DisplayNameFor(model => model.category.CategoryName)</td>
+                    <td>@Html.DisplayFor(model => model.category.CategoryName)</td>
                 </tr>
                 <tr>
-                    <td>@Html.DisplayNameFor(model => model.Brand.BrandName)</td>
-                    <td>@Html.DisplayFor(model => model.Brand.BrandName)</td>
+                    <td>@Html.DisplayNameFor(model => model.brand.BrandName)</td>
+                    <td>@Html.DisplayFor(model => model.brand.BrandName)</td>
                 </tr>
             </tbody>
         </table>

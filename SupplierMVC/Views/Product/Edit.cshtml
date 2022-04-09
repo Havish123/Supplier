@@ -1,16 +1,14 @@
-﻿@model SupplierMVC.Models.ProductCreateModel
+﻿@using SupplierMVC.Extensions
+@model SupplierMVC.Models.ProductCreateModel
 
-
-@using SupplierMVC.Extensions
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
-<h1>Create New Product</h1>
-<br />
-<h2 class="text-info "> Add Products</h2>
+<h1>Edit</h1>
+<h2 class="text-info "> Edit Products</h2>
 
-<form method="post" enctype="multipart/form-data" action="Create">
+<form method="post" enctype="multipart/form-data" action="Edit">
         @Html.AntiForgeryToken()
         @Html.ValidationSummary()
 
@@ -76,7 +74,7 @@
     
     <br /><br />
     <div class="form-group">
-        <input type="submit" class="btn btn-dark" value="Create" />
+        <input type="submit" class="btn btn-dark" value="Edit" />
         <a asp-action="Index" class="btn btn-success">Back</a>
     </div>
 </form>
