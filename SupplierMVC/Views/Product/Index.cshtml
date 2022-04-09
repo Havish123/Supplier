@@ -9,7 +9,8 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<div class="table-responsive">
+    <table class="table table-bordered">
     <thead>
         <tr>
             <th>@Html.DisplayNameFor(model => model.product.product_Id)</th>
@@ -45,3 +46,5 @@
 }
     </tbody>
 </table>
+</div>
+

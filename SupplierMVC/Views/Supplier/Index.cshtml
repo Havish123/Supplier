@@ -31,7 +31,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.supplierPhone)
             </th>
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -55,11 +55,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.supplierPhone)
             </td>
-            <td>
+            @*<td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.supplierId  }) |
                 @Html.ActionLink("Details", "Details", new { id=item.supplierId  }) |
                 @Html.ActionLink("Delete", "Delete", new { id=item.supplierId  })
-            </td>
+            </td>*@
+            <partial name="_TableButtonPartial" model="item.supplierId" />
         </tr>
 }
     </tbody>

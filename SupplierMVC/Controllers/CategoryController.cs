@@ -18,6 +18,25 @@ namespace SupplierMVC.Controllers
             return View(await _services.GetCategoryData());
         }
 
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var category = await _services.GetCategoryData(id);
+            return View(category);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(CategoryData category)
+        {
+            category.Products = new List<ProductData>();
+            var result = _services.EditCategoryData(category);
+            if (result)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
         public IActionResult Create()
         {
             return View();

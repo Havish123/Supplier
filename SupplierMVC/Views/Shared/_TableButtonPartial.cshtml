@@ -1,0 +1,13 @@
+﻿@model int
+<td class="text-xl-end align-content-center">
+    <div class="btn-group">
+        <a type="button" class="btn btn-primary" href="@Url.Action("Edit",new { id=Model} )"><i class="fa-solid fa-pen-to-square"></i></a>
+        <div style="width:2px;"></div>
+        <a type="button" class="btn btn-primary" href="@Url.Action("Details",new { id=Model} )"><i class="fa-solid fa-info"></i></a>
+        <div style="width:2px;"></div>
+        <form method="post">
+            <button onclick="if (!confirm('Are you sure to delete this?')){return false}" type="submit" class="btn btn-danger rounded" asp-action="Delete" asp-route-id="@Model"><i class="fa-solid fa-trash"></i></button>
+        </form>
+
+    </div>
+</td>

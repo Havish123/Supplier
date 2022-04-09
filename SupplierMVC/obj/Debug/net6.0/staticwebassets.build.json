@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tuNjzXXl9c2YEjdaHYSZCpunHPOhbbfQ6QhJCarrVfc=",
+  "Hash": "I8mU4F4w/fFw4auXuFwMjXUwLjoJMTEQT1W9gKEkQ7I=",
   "Source": "SupplierMVC",
   "BasePath": "_content/SupplierMVC",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "F:\\VS Projects\\Backend\\SupplierAPI\\SupplierMVC\\wwwroot\\image\\home_banner.jpg",
+      "SourceId": "SupplierMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\VS Projects\\Backend\\SupplierAPI\\SupplierMVC\\wwwroot\\",
+      "BasePath": "_content/SupplierMVC",
+      "RelativePath": "image/home_banner.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\image\\home_banner.jpg"
     },
     {
       "Identity": "F:\\VS Projects\\Backend\\SupplierAPI\\SupplierMVC\\wwwroot\\js\\site.js",
