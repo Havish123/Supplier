@@ -9,7 +9,8 @@
       "SupplierMVC/1.0.0": {
         "dependencies": {
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.2",
-          "Newtonsoft.Json": "13.0.1"
+          "Newtonsoft.Json": "13.0.1",
+          "System.Linq": "4.3.0"
         },
         "runtime": {
           "SupplierMVC.dll": {}

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SupplierAPI.Models.SupplierData>
+﻿@model IEnumerable<SupplierMVC.Models.SupplierData>
 
 @{
     ViewData["Title"] = "Index";
@@ -9,7 +9,8 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<div class="table-responsive">
+    <table class="table table-bordered align-middle">
     <thead>
         <tr>
             <th>
@@ -63,3 +64,5 @@
 }
     </tbody>
 </table>
+</div>
+

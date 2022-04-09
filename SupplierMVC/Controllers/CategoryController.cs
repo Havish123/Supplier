@@ -5,8 +5,8 @@ namespace SupplierMVC.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ISupplierService _services;
-        public CategoryController(ISupplierService services)
+        private readonly IClientService _services;
+        public CategoryController(IClientService services)
         {
             _services = services;
 

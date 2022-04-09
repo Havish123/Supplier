@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using SupplierAPI.Models;
+using SupplierMVC.Models;
 
 namespace SupplierMVC.Extensions
 {

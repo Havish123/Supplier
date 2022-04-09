@@ -5,8 +5,8 @@ namespace SupplierMVC.Controllers
 {
     public class BrandController : Controller
     {
-        private readonly ISupplierService _services;
-        public BrandController(ISupplierService services)
+        private readonly IClientService _services;
+        public BrandController(IClientService services)
         {
             _services = services;
 

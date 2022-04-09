@@ -43,6 +43,11 @@ namespace SupplierAPI.Services
         public async Task<Brand> Get(int id)
         {
             var brand = await _context.Brands.FindAsync(id);
+            brand.Products = _context.Products.Where(p => p.BrandId == brand.BrandId).ToList();
+            foreach (var p in brand.Products)
+            {
+                p.inventory=_context.Inventories.First(i => i.ProductId== p.product_Id);
+            }
             if (brand != null)
             {
                 return brand;
@@ -52,7 +57,20 @@ namespace SupplierAPI.Services
 
         public async Task<IEnumerable<Brand>> Get()
         {
-            return await _context.Brands.ToListAsync();
+           
+            var brands = await _context.Brands.ToListAsync();
+            foreach(var b in brands)
+            {
+                b.Products =  (from p in _context.Products where p.BrandId== b.BrandId select p).ToList();
+            }
+            brands.ForEach(b =>
+            {
+                foreach( var p in b.Products)
+                {
+                    p.inventory=_context.Inventories.First(i => i.ProductId==p.product_Id);
+                }
+            });
+            return brands;
 
         }
 

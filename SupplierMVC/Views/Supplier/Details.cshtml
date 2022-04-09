@@ -1,0 +1,80 @@
+﻿@model SupplierMVC.Models.SupplierData
+@using SupplierMVC.Models
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<div>
+    <h2>Supplier Details</h2>
+    <hr />
+    <div class="table-responsive">
+        <table style="width:400px" class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.supplierId)</td>
+                    <td>@Html.DisplayFor(model => model.supplierId)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.supplierName)</td>
+                    <td>@Html.DisplayFor(model => model.supplierName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.supplierBulstat)</td>
+                    <td>@Html.DisplayFor(model => model.supplierBulstat)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.supplierAddress)</td>
+                    <td>@Html.DisplayFor(model => model.supplierAddress)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.supplierEmail)</td>
+                    <td>@Html.DisplayFor(model => model.supplierEmail)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.supplierPhone)</td>
+                    <td>@Html.DisplayFor(model => model.supplierPhone)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a><br /><br />
+</div>
+    <h2>Supplier Product Details</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Stocks Available</th>
+                <th>Product Price</th>
+            </thead>
+            <tbody>
+                @if (Model.Products.Count==0)
+                {
+                    <tr style="text-align:center;"><td colspan="4">No Product Available</td></tr>
+                }
+                else
+                {
+                    @foreach(var item in Model.Products)
+                    {
+                    
+                        <tr style="text-align:center;">
+                            <td>@Html.DisplayFor(modelItem => item.product_Id)</td>
+                            <td>@Html.DisplayFor(modelItem => item.product_Name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.inventory.stock_product_quantity)</td>
+                            <td>@Html.DisplayFor(modelItem => item.product_price)</td>
+                        </tr>
+                    
+                    }
+                }
+                
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+

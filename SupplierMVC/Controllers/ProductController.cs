@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SupplierAPI.Models;
+
 using SupplierMVC.Models;
 using SupplierMVC.Services;
 
@@ -7,8 +7,8 @@ namespace SupplierMVC.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly ISupplierService _services;
-        public ProductController(ISupplierService services)
+        private readonly IClientService _services;
+        public ProductController(IClientService services)
         {
             _services = services;
             

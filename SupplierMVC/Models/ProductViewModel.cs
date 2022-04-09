@@ -1,4 +1,4 @@
-﻿namespace SupplierAPI.Models
+﻿namespace SupplierMVC.Models
 {
     public class ProductViewModel
     {

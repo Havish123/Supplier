@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SupplierAPI.Data;
 using SupplierAPI.Models;
+using System.Linq;
 
 namespace SupplierAPI.Services
 {
@@ -41,6 +42,7 @@ namespace SupplierAPI.Services
         public async Task<Product> Get(int id)
         {
             var product = await _context.Products.FindAsync(id);
+            product.inventory= _context.Inventories.First(i => i.ProductId==product.product_Id);
             if (product != null)
             {
                 return product;
@@ -50,7 +52,12 @@ namespace SupplierAPI.Services
 
         public async Task<IEnumerable<Product>> Get()
         {
-            return await _context.Products.ToListAsync();
+            //var questions = await _context.Questions.ToListAsync();
+            //questions.ForEach(q => q.Answers = (from answer in _context.Answers where q.QuestionID == answer.QuestionID select answer).ToList());
+            //return questions;
+            var products= await _context.Products.ToListAsync();
+            products.ForEach(async product => product.inventory = _context.Inventories.First(i => i.ProductId == product.product_Id));
+            return products;
            
         }
 

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SupplierAPI.Models.ProductViewModel>
+﻿@model IEnumerable<SupplierMVC.Models.ProductViewModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -37,9 +37,9 @@
             <td>@Html.DisplayFor(model => item.Brand.BrandName)</td>
             <td>@Html.DisplayFor(model => item.Supplier.supplierName)</td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new {  id=item.product.product_Id  }) |
+                @Html.ActionLink("Details", "Details", new {  id=item.product.product_Id  }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.product.product_Id  })
             </td>
         </tr>
 }
