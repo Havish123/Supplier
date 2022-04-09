@@ -7,7 +7,7 @@
 
 
 <div>
-    <h2>Supplier Details</h2>
+    <h2 class="text-success">Supplier Details</h2>
     <hr />
     <div class="table-responsive">
         <table style="width:400px" class="table table-bordered">
@@ -40,10 +40,11 @@
         </table>
     </div>
     <div>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.supplierId  }) |
-        <a asp-action="Index">Back to List</a><br /><br />
+        <a class="btn btn-success" asp-action="Edit" asp-route-id="@Model.supplierId">Edit</a> 
+        <a class="btn btn-primary" asp-action="Index">Back to List</a><br /><br />
     </div>
-    <h2>Supplier Product Details</h2>
+    <h2 class="text-info">Supplier Product Details</h2>
+    <hr />
     <partial name="_ProductViewPartial" model="Model.Products" />
     
 </div>

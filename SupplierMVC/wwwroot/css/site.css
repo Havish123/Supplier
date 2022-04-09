@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap');
 html {
   font-size: 18px;
 }
@@ -18,6 +18,10 @@ html {
 
 body {
     margin-bottom: 60px;
-    font-size:18px;
-    font-family: 'Fredoka One', cursive;
+    font-size: 18px;
+    font-family: 'Libre Baskerville', serif;
+    /*font-family: 'Fredoka One', cursive;*/
+}
+#ntitle{
+    font-family:'Satisfy',cursive;
 }

@@ -12,11 +12,12 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="supplierId" class="control-label"></label>
                 <input asp-for="supplierId" class="form-control" />
                 <span asp-validation-for="supplierId" class="text-danger"></span>
-            </div>
+            </div>*@
+            @Html.HiddenFor(m=>m.supplierId)
             <div class="form-group">
                 <label asp-for="supplierName" class="control-label"></label>
                 <input asp-for="supplierName" class="form-control" />
@@ -41,16 +42,16 @@
                 <label asp-for="supplierPhone" class="control-label"></label>
                 <input asp-for="supplierPhone" class="form-control" />
                 <span asp-validation-for="supplierPhone" class="text-danger"></span>
-            </div>
+            </div><br/>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-success" />
             </div>
         </form>
     </div>
 </div>
-
+<br/>
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-primary" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
