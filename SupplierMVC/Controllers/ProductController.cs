@@ -48,7 +48,7 @@ namespace SupplierMVC.Controllers
         public async Task<IActionResult> Details(int id)
         {
 
-            return View(await _services.GetSupplierData(id));
+            return View(_productCreateModels);
         }
 
         [HttpPost]

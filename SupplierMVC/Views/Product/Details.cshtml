@@ -1,0 +1,45 @@
+﻿@model SupplierMVC.Models.ProductViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ProductData</h4>
+    <hr />
+    <div class="table-responsive">
+        <table style="width:400px" class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.product.product_Id)</td>
+                    <td>@Html.DisplayFor(model => model.product.product_Id)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.product.product_Name)</td>
+                    <td>@Html.DisplayFor(model => model.product.product_Name)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.product.product_price)</td>
+                    <td>@Html.DisplayFor(model => model.product.product_price)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Supplier.supplierName)</td>
+                    <td>@Html.DisplayFor(model => model.Supplier.supplierName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Category.CategoryName)</td>
+                    <td>@Html.DisplayFor(model => model.Category.CategoryName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Brand.BrandName)</td>
+                    <td>@Html.DisplayFor(model => model.Brand.BrandName)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>All Category Details</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -19,7 +19,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.CategoryName)
             </th>
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -31,11 +31,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CategoryName)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.CategoryId  }) |
-                @Html.ActionLink("Details", "Details", new {  id=item.CategoryId  }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.CategoryId  })
-            </td>
+            <partial name="_TableButtonPartial" model="item.CategoryId" />
         </tr>
 }
     </tbody>
