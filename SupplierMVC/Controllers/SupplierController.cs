@@ -15,17 +15,24 @@ namespace SupplierMVC.Controllers
 
 
         }
-        public async Task<IActionResult> Index()
+        //Index Home Page for show the list of Brands
+        public async Task<IActionResult> Index(string SearchString)
         {
-            
-            return View(await _services.GetSupplierData());
+            var suppliers = await _services.GetSupplierData();
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                suppliers=suppliers.Where( s => s.supplierName.Contains(SearchString)).ToList();
+            }
+            return View(suppliers);
         }
 
+        //HttpGet Method to Navigate the Create Page
         public IActionResult Create()
         {
             return View();
         }
 
+        //HttpPost method for Store the Data
         [HttpPost]
         public IActionResult Create(SupplierData supplier)
         {
@@ -38,14 +45,15 @@ namespace SupplierMVC.Controllers
             return View();
         }
 
+        //Http Get Method for View The Supplier Details
         public async Task<IActionResult> Details(int id)
         {
             var suppliers = await _services.GetSupplierData(id);
             return View(suppliers);
         }
 
-       
 
+        //HttpGet Method for Navigate to the Edit Page
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
@@ -54,6 +62,7 @@ namespace SupplierMVC.Controllers
 
         }
 
+        //Post method for apply the changes in the database
         [HttpPost]
         public IActionResult Edit(SupplierData supplier)
         {
@@ -66,6 +75,7 @@ namespace SupplierMVC.Controllers
             return View();
         }
 
+        //Delete the Data into the Database
         public async Task<IActionResult> Delete(int id)
         {
             bool res = await _services.DeleteSupplierData(id);

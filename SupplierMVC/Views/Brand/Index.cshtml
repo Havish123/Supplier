@@ -6,9 +6,24 @@
 
 <h1>All Brand Details</h1>
 <div>
-    <p>
-    <a asp-action="Create">Create New</a>
-</p>
+  
+<div class="row justify-content-between">
+    <div class="col-4">
+        <p>
+            <a class="btn btn-primary" asp-action="Create"><i class="fa-solid fa-plus"></i> Create New</a>
+        </p>
+    </div>
+    <div class="col-4">
+        <div class="input-group ">
+           <form asp-controller="Brand" asp-action="Index">
+                <div  class="d-flex">
+                    <input type="text" name="SearchString" class="form-control me-2" placeholder="Search Brand" aria-label="Search Brand" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary d-flex" type="submit" id="button-addon2">Filter </button>
+                </div>
+           </form>
+        </div>
+    </div>
+  </div>
 <div class="table-responsive">
     <table class="table table-bordered">
     <thead>

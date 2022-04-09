@@ -6,9 +6,23 @@
 
 <h1>All Category Details</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div class="row justify-content-between">
+    <div class="col-4">
+        <p>
+            <a class="btn btn-primary" asp-action="Create"><i class="fa-solid fa-plus"></i> Create New</a>
+        </p>
+    </div>
+    <div class="col-4">
+        <div class="input-group ">
+           <form asp-controller="Category" asp-action="Index">
+                <div  class="d-flex">
+                    <input type="text" name="SearchString" class="form-control me-2" placeholder="Search Category" aria-label="Search Category" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary d-flex" type="submit" id="button-addon2">Filter </button>
+                </div>
+           </form>
+        </div>
+    </div>
+  </div>
 <div class="table-responsive">
     <table class="table table-bordered">
     <thead>

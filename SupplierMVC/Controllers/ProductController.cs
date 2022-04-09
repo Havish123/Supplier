@@ -15,12 +15,17 @@ namespace SupplierMVC.Controllers
             
 
         }
-        public async Task<IActionResult> Index()
+
+        //Product Home Page
+        public async Task<IActionResult> Index(string SearchString)
         {
-            _productViewModels = await  GetProductViewModel();
+            
+            _productViewModels = await  GetProductViewModel(SearchString);
 
             return View(_productViewModels);
         }
+
+        //Create Get Method for View The Page
         [HttpGet]
         public async Task<IActionResult> Create()
         {
@@ -31,13 +36,29 @@ namespace SupplierMVC.Controllers
             model.suppliers= await _services.GetSupplierData(); 
             return View(model);
         }
+        //Create Post Method for Storing Product Data into Database
+        [HttpPost]
+        public async Task<IActionResult> Create(ProductCreateModel product)
+        {
 
+            var result = _services.CreateProductData(product.productData);
+            if (result)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(_productViewModels);
+        }
+
+
+        //Get Method to View the particular Product Details
         public async Task<IActionResult> Details(int id)
         {
             ProductDetailsModel model=new ProductDetailsModel();
             model = await GetData(id);
             return View(model);
         }
+
+        //Get the Data with the type of Product Details Model
         public async Task<ProductDetailsModel> GetData(int id)
         {
             ProductDetailsModel modeldata=new ProductDetailsModel();
@@ -49,11 +70,17 @@ namespace SupplierMVC.Controllers
 
 
         }
-        public async Task<List<ProductViewModel>> GetProductViewModel()
+
+        //Get the Data with the type of Product View Model
+        public async Task<List<ProductViewModel>> GetProductViewModel(string SearchString)
         {
             _productViewModels = new List<ProductViewModel>();
             List<ProductData> product = new List<ProductData>();
-            product = await _services.GetProduct();
+             product = await _services.GetProduct();
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                product = product.Where(p => p.product_Name!.Contains(SearchString)).ToList();
+            }
             //var data = await _services.GetProductData();
 
             foreach (var p in product)
@@ -68,19 +95,9 @@ namespace SupplierMVC.Controllers
             return _productViewModels;
 
         }
-        [HttpPost]
-        public async Task<IActionResult> Create(ProductCreateModel product)
-        {
-          
-            var result = _services.CreateProductData(product.productData);
-            if (result)
-            {
-                return RedirectToAction("Index");
-            }
-            return View(_productViewModels);
-        }
+        
 
-
+        //Edit Method for View The data in Edit Page
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
@@ -92,6 +109,8 @@ namespace SupplierMVC.Controllers
             return View(model);
 
         }
+
+        //Post method for update the data into database
         [HttpPost]
         public async Task<IActionResult> Edit(ProductCreateModel product)
         {
@@ -110,7 +129,7 @@ namespace SupplierMVC.Controllers
         }
 
        
-
+        //Delete  method for Delete the product Data
         public async Task<IActionResult> Delete(int id)
         {
             bool res = await _services.DeleteProductData(id);
