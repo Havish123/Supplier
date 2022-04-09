@@ -57,7 +57,12 @@ namespace SupplierMVC.Controllers
         [HttpPost]
         public IActionResult Edit(SupplierData supplier)
         {
-           
+            supplier.Products = new List<ProductData>();
+            var result = _services.EditSupplierData(supplier);
+            if (result)
+            {
+                return RedirectToAction("Index");
+            }
             return View();
         }
 
