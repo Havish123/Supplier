@@ -58,5 +58,17 @@ namespace SupplierMVC.Controllers
             }
             return View();
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            bool res=await _services.DeleteBrandData(id);
+            if (res)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+    
+        
     }
 }

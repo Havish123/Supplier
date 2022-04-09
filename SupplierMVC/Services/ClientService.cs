@@ -37,6 +37,13 @@ namespace SupplierMVC.Services
         public bool EditProductData(ProductData product);
         #endregion
 
+        #region DeleteData
+        public Task<bool> DeleteProductData(int id);
+        public Task<bool> DeleteSupplierData(int id);
+        public Task<bool> DeleteBrandData(int id);
+        public Task<bool> DeleteCategoryData(int id);
+        #endregion
+
     }
     public class ClientService : IClientService
     {
@@ -284,7 +291,56 @@ namespace SupplierMVC.Services
             }
             return false;
         }
+
         #endregion
+
+
+        #region Delete Data
+        public async Task<bool> DeleteProductData(int id)
+        {
+            HttpClient client = _api.Initial();
+            HttpResponseMessage res = await client.DeleteAsync($"{_productApi}/{id}");
+            if (res.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public async Task<bool> DeleteSupplierData(int id)
+        {
+            HttpClient client = _api.Initial();
+            HttpResponseMessage res = await client.DeleteAsync($"{_supplierApi}/{id}");
+            if (res.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public async Task<bool> DeleteBrandData(int id)
+        {
+            HttpClient client = _api.Initial();
+            HttpResponseMessage res = await client.DeleteAsync($"{_brandApi}/{id}");
+            if (res.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public async Task<bool> DeleteCategoryData(int id)
+        {
+            HttpClient client = _api.Initial();
+            HttpResponseMessage res = await client.DeleteAsync($"{_categoryApi}/{id}");
+            if (res.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
+        #endregion
+
 
 
     }
