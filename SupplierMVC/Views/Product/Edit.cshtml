@@ -5,7 +5,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+
 <h2 class="text-info "> Edit Products</h2>
 
 <form method="post" enctype="multipart/form-data" action="Edit">
@@ -78,12 +78,12 @@
     <br /><br />
     <div class="form-group">
         <input type="submit" class="btn btn-dark" value="Edit" />
-        <a asp-action="Index" class="btn btn-success">Back</a>
+       
     </div>
 </form>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-primary" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

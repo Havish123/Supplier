@@ -36,10 +36,16 @@
                     <td>@Html.DisplayNameFor(model => model.brand.BrandName)</td>
                     <td>@Html.DisplayFor(model => model.brand.BrandName)</td>
                 </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Product.inventory.stock_product_quantity)</td>
+                    <td>@Html.DisplayFor(model => model.Product.inventory.stock_product_quantity)</td>
+                </tr>
             </tbody>
         </table>
     </div>
+    <br />
 <div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" class="btn btn-success" asp-route-id="@Model.Product.product_Id">Edit</a>
+    
+    <a class="btn btn-primary" asp-action="Index">Back to List</a>
 </div>
