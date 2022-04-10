@@ -10,14 +10,16 @@ namespace SupplierAPI.Data
             {
                 List<Category> category = new List<Category>()
                 {
-                    new Category{CategoryName="Beverages"},
-                    new Category{CategoryName="Condiments"},
-                    new Category{CategoryName="Congections"},
-                    new Category{CategoryName="Dairy Products"},
-                    new Category{CategoryName="Grains/Cereals"},
-                    new Category{CategoryName="Meat/Poultry"},
-                    new Category{CategoryName="Produce"},
-                    new Category{CategoryName="Seafood"},
+                    new Category{Name="Mobiles"},
+                    new Category{Name="Wearables"},
+                    new Category{Name="TeleVision"},
+                    new Category{Name="Set Top Boxes"},
+                    new Category{Name="Monitors"},
+                    new Category{Name="Laptops"},
+                    new Category{Name="Tablets"},
+                    new Category{Name="Computers"},
+                    new Category{Name="Printers"},
+                    new Category{Name="Scanners"},
                 };
                 context.Categories.AddRange(category);
                 context.SaveChanges();
@@ -25,10 +27,16 @@ namespace SupplierAPI.Data
             if (!context.Brands.Any())
             {
                 List<Brand> brands = new List<Brand>() {
-                    new Brand{BrandName="Nestle"},
-                    new Brand{BrandName="SunFeast"},
-                    new Brand{BrandName="Cadbery"},
-                    new Brand{BrandName="HUL"},
+                    new Brand{Name="Redmi"},
+                    new Brand{Name="Samsung"},
+                    new Brand{Name="HP"},
+                    new Brand{Name="POCO"},
+                    new Brand{Name="Acer"},
+                    new Brand{Name="Asus"},
+                    new Brand{Name="Apple"},
+                    new Brand{Name="Realme"},
+                    new Brand{Name="Sony"},
+                    new Brand{Name="Oneplus"},
                 };
 
                 context.Brands.AddRange(brands);
@@ -37,35 +45,35 @@ namespace SupplierAPI.Data
             if (!context.Suppliers.Any()) {
                 List<Supplier> suppliers = new List<Supplier>() {
                     new Supplier{
-                        supplierName="Deepak",
+                        Name="Deepak",
                         supplierEmail="deepakraj@gmail.com",
                         supplierPhone="1234567890",
                         supplierAddress="Madurai",
                         supplierBulstat="118585306",
 
                     },new Supplier{
-                        supplierName="Dharani",
+                        Name="Dharani",
                         supplierEmail="dharani@gmail.com",
                         supplierPhone="1234567890",
                         supplierAddress="Coimbatore",
                         supplierBulstat="118585305",
 
                     },new Supplier{
-                        supplierName="Vinil",
+                        Name="Vinil",
                         supplierEmail="vinil@gmail.com",
                         supplierPhone="1234567890",
                         supplierAddress="Tirunelveli",
                         supplierBulstat="118585303",
 
                     },new Supplier{
-                        supplierName="Sudharshan",
+                        Name="Sudharshan",
                         supplierEmail="sudharshan@gmail.com",
                         supplierPhone="1234567890",
                         supplierAddress="Theni",
                         supplierBulstat="118585302",
 
                     },new Supplier{
-                        supplierName="Suwathi",
+                        Name="Suwathi",
                         supplierEmail="suwathi@gmail.com",
                         supplierPhone="1234567890",
                         supplierAddress="Tirupur",

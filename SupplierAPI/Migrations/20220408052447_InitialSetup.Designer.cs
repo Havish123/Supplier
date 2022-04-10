@@ -25,17 +25,17 @@ namespace SupplierAPI.Migrations
 
             modelBuilder.Entity("SupplierAPI.Models.Brand", b =>
                 {
-                    b.Property<int>("BrandId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BrandId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("BrandName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("BrandId");
+                    b.HasKey("Id");
 
                     b.ToTable("Brands");
                 });
@@ -87,7 +87,7 @@ namespace SupplierAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("product_Id"), 1L, 1);
 
-                    b.Property<int>("BrandId")
+                    b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.Property<int>("CategoryId")
@@ -105,7 +105,7 @@ namespace SupplierAPI.Migrations
 
                     b.HasKey("product_Id");
 
-                    b.HasIndex("BrandId");
+                    b.HasIndex("Id");
 
                     b.HasIndex("CategoryId");
 
@@ -160,7 +160,7 @@ namespace SupplierAPI.Migrations
                 {
                     b.HasOne("SupplierAPI.Models.Brand", null)
                         .WithMany("Products")
-                        .HasForeignKey("BrandId")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

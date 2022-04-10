@@ -13,6 +13,8 @@ namespace SupplierMVC.Services
 
         public Task<List<BrandData>> GetBrandData();
         public  Task<List<SupplierData>> GetSupplierData();
+        public  Task<List<InventoryData>> GetInventoryData();
+        
         #endregion
 
         #region GetOneMethod
@@ -20,6 +22,7 @@ namespace SupplierMVC.Services
         public  Task<SupplierData> GetSupplierData(int id);
         public  Task<BrandData> GetBrandData(int id);
         public Task<CategoryData> GetCategoryData(int id);
+        public Task<InventoryData> GetInventoryData(int id);
         #endregion
 
         #region CreateOrPostData
@@ -27,6 +30,7 @@ namespace SupplierMVC.Services
         public bool CreateSupplierData(SupplierData supplier);
         public bool CreateCategoryData(CategoryData category);
         public bool CreateProductData(ProductData product);
+        //public bool CreateInventoryData(InventoryData inventory);
 
         #endregion
 
@@ -35,6 +39,7 @@ namespace SupplierMVC.Services
         public bool EditSupplierData(SupplierData supplier);
         public bool EditCategoryData(CategoryData category);
         public bool EditProductData(ProductData product);
+        public bool EditInventoryData(InventoryData inventory);
         #endregion
 
         #region DeleteData
@@ -42,6 +47,7 @@ namespace SupplierMVC.Services
         public Task<bool> DeleteSupplierData(int id);
         public Task<bool> DeleteBrandData(int id);
         public Task<bool> DeleteCategoryData(int id);
+        public Task<bool> DeleteInventoryData(int id);
         #endregion
 
     }
@@ -51,6 +57,7 @@ namespace SupplierMVC.Services
         private string _supplierApi = "api/suppliers";
         private string _brandApi = "api/brands";
         private string _categoryApi = "api/categories";
+        private string _inventoryApi = "api/inventory";
         Supplier_API _api =new Supplier_API();
 
 
@@ -112,9 +119,36 @@ namespace SupplierMVC.Services
             return category;
         }
 
+        public async Task<List<InventoryData>> GetInventoryData()
+        {
+            List<InventoryData> inventories = new List<InventoryData>();
+            HttpClient client = _api.Initial();
+            HttpResponseMessage res = await client.GetAsync(_inventoryApi);
+            if (res.IsSuccessStatusCode)
+            {
+                var result = res.Content.ReadAsStringAsync().Result;
+                inventories = JsonConvert.DeserializeObject<List<InventoryData>>(result);
+            }
+            return inventories;
+        }
+
         #endregion
 
         #region GetParticularData
+
+        public async Task<InventoryData> GetInventoryData(int id)
+        {
+
+            InventoryData inventory = new InventoryData();
+            HttpClient client = _api.Initial();
+            HttpResponseMessage res = await client.GetAsync($"{_inventoryApi}/{id}");
+            if (res.IsSuccessStatusCode)
+            {
+                var result = res.Content.ReadAsStringAsync().Result;
+                inventory = JsonConvert.DeserializeObject<InventoryData>(result);
+            }
+            return inventory;
+        }
 
         //Get Particular Product Data
         public async Task<ProductData> GetProductData(int id)
@@ -240,7 +274,7 @@ namespace SupplierMVC.Services
         {
             HttpClient client = _api.Initial();
 
-            var postTask = client.PutAsJsonAsync<BrandData>($"{_brandApi}/{brand.BrandId}", brand);
+            var postTask = client.PutAsJsonAsync<BrandData>($"{_brandApi}/{brand.Id}", brand);
             postTask.Wait();
             var result = postTask.Result;
             if (result.IsSuccessStatusCode)
@@ -254,7 +288,7 @@ namespace SupplierMVC.Services
         {
             HttpClient client = _api.Initial();
 
-            var postTask = client.PutAsJsonAsync<SupplierData>($"{_supplierApi}/{supplier.supplierId}", supplier);
+            var postTask = client.PutAsJsonAsync<SupplierData>($"{_supplierApi}/{supplier.Id}", supplier);
             postTask.Wait();
             var result = postTask.Result;
             if (result.IsSuccessStatusCode)
@@ -268,7 +302,7 @@ namespace SupplierMVC.Services
         {
             HttpClient client = _api.Initial();
 
-            var postTask = client.PutAsJsonAsync<CategoryData>($"{_categoryApi}/{category.CategoryId}", category);
+            var postTask = client.PutAsJsonAsync<CategoryData>($"{_categoryApi}/{category.Id}", category);
             postTask.Wait();
             var result = postTask.Result;
             if (result.IsSuccessStatusCode)
@@ -282,7 +316,21 @@ namespace SupplierMVC.Services
         {
             HttpClient client = _api.Initial();
 
-            var postTask = client.PutAsJsonAsync<ProductData>($"{_productApi}/{product.product_Id}", product);
+            var postTask = client.PutAsJsonAsync<ProductData>($"{_productApi}/{product.Id}", product);
+            postTask.Wait();
+            var result = postTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool EditInventoryData(InventoryData inventory)
+        {
+            HttpClient client = _api.Initial();
+
+            var postTask = client.PutAsJsonAsync<InventoryData>($"{_inventoryApi}/{inventory.Id}", inventory);
             postTask.Wait();
             var result = postTask.Result;
             if (result.IsSuccessStatusCode)
@@ -338,8 +386,23 @@ namespace SupplierMVC.Services
             }
             return false;
         }
-        #endregion
 
+        public async Task<bool> DeleteInventoryData(int id)
+        {
+            HttpClient client = _api.Initial();
+            HttpResponseMessage res = await client.DeleteAsync($"{_inventoryApi}/{id}");
+            if (res.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+
+
+        #endregion
+      
     }
 
 }

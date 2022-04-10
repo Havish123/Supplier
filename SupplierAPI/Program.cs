@@ -14,6 +14,7 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ISupplierService, SupplierService>();
 builder.Services.AddScoped<IBrandService, BrandService>();
+builder.Services.AddScoped<IInventoryService, InventoryService>();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();

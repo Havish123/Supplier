@@ -29,10 +29,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.BrandId)
+                @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BrandName)
+                @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>Actions</th>
         </tr>
@@ -41,12 +41,12 @@
         @foreach (var item in Model) {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.BrandId)
+                    @Html.DisplayFor(modelItem => item.Id)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.BrandName)
+                    @Html.DisplayFor(modelItem => item.Name)
                 </td>
-               <partial name="_TableButtonPartial" model="item.BrandId" />
+               <partial name="_TableButtonPartial" model="item.Id" />
             </tr>
         }
     </tbody>

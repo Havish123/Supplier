@@ -261,3 +261,9 @@ F:\VS Projects\Backend\SupplierAPI\SupplierAPI\obj\Debug\net6.0\refint\SupplierA
 F:\VS Projects\Backend\SupplierAPI\SupplierAPI\obj\Debug\net6.0\SupplierAPI.pdb
 F:\VS Projects\Backend\SupplierAPI\SupplierAPI\obj\Debug\net6.0\SupplierAPI.genruntimeconfig.cache
 F:\VS Projects\Backend\SupplierAPI\SupplierAPI\obj\Debug\net6.0\ref\SupplierAPI.dll
+F:\VS Projects\Backend\SupplierAPI\SupplierAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+F:\VS Projects\Backend\SupplierAPI\SupplierAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+F:\VS Projects\Backend\SupplierAPI\SupplierAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+F:\VS Projects\Backend\SupplierAPI\SupplierAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\VS Projects\Backend\SupplierAPI\SupplierAPI\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+F:\VS Projects\Backend\SupplierAPI\SupplierAPI\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll

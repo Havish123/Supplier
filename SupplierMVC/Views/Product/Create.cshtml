@@ -15,11 +15,11 @@
 
      <div class="form-group row">
         <div class="col-2">
-            <label asp-for="productData.product_Name"></label>
+            <label asp-for="productData.Name"></label>
         </div>
         <div class="col-4">
-            <input asp-for="productData.product_Name"  class="form-control"></input>
-            <span asp-validation-for="productData.product_Name" class="text-danger"></span>
+            <input asp-for="productData.Name"  class="form-control"></input>
+            <span asp-validation-for="productData.Name" class="text-danger"></span>
         </div></div>
     <br />
     <div class="form-group row">
@@ -27,8 +27,9 @@
             <label asp-for="categories"></label>
         </div>
         <div class="col-4">
-            <select asp-for="productData.CategoryId" asp-items="IEnumerableExtensions.categoryItem(Model.categories)" id="Category" class="form-control"></select>
-            <span asp-validation-for="productData.CategoryId" class="text-danger"></span>
+            @*asp-items="Model.Makes.ToSelectedListItem<Make>()"*@
+            <select asp-for="productData.Id" asp-items="Model.categories.ToSelectedListItem<CategoryData>()" id="Category" class="form-control"></select>
+            <span asp-validation-for="productData.Id" class="text-danger"></span>
             </div>
         </div>
     <br />
@@ -38,8 +39,8 @@
             <label asp-for="brands"></label>
         </div>
         <div class="col-4">
-            <select asp-for="productData.BrandId" asp-items="IEnumerableExtensions.brandItem(Model.brands)" id="BrandData" class="form-control"></select>
-            <span asp-validation-for="productData.BrandId" class="text-danger"></span>
+            <select asp-for="productData.Id" asp-items="Model.brands.ToSelectedListItem<BrandData>()" id="BrandData" class="form-control"></select>
+            <span asp-validation-for="productData.Id" class="text-danger"></span>
             </div></div>
     <br />
     <div class="form-group row">
@@ -47,8 +48,8 @@
             <label asp-for="suppliers"></label>
         </div>
         <div class="col-4">
-            <select asp-for="productData.SupplierId" asp-items="IEnumerableExtensions.supplierItem(Model.suppliers)" id="SupplierData" class="form-control"></select>
-            <span asp-validation-for="productData.SupplierId" class="text-danger"></span>
+            <select asp-for="productData.Id" asp-items="Model.suppliers.ToSelectedListItem<SupplierData>()" id="SupplierData" class="form-control"></select>
+            <span asp-validation-for="productData.Id" class="text-danger"></span>
             </div></div>
     <br />
 

@@ -43,10 +43,10 @@ namespace SupplierAPI.Services
         public async Task<Category> Get(int id)
         {
             var category = await _context.Categories.FindAsync(id);
-            category.Products = _context.Products.Where(p => p.CategoryId == category.CategoryId).ToList();
+            category.Products = _context.Products.Where(p => p.CategoryId == category.Id).ToList();
             foreach (var p in category.Products)
             {
-                p.inventory = _context.Inventories.First(i => i.ProductId == p.product_Id);
+                p.inventory = _context.Inventories.First(i => i.ProductId == p.Id);
             }
             if (category != null)
             {
@@ -60,13 +60,13 @@ namespace SupplierAPI.Services
             var categories = await _context.Categories.ToListAsync();
             foreach (var c in categories)
             {
-                c.Products = (from p in _context.Products where p.CategoryId == c.CategoryId select p).ToList();
+                c.Products = (from p in _context.Products where p.CategoryId == c.Id select p).ToList();
             }
             categories.ForEach(c =>
             {
                 foreach (var p in c.Products)
                 {
-                    p.inventory = _context.Inventories.First(i => i.ProductId == p.product_Id);
+                    p.inventory = _context.Inventories.First(i => i.ProductId == p.Id);
                 }
             });
             return categories;

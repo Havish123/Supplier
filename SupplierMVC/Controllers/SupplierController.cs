@@ -21,7 +21,7 @@ namespace SupplierMVC.Controllers
             var suppliers = await _services.GetSupplierData();
             if (!String.IsNullOrEmpty(SearchString))
             {
-                suppliers=suppliers.Where( s => s.supplierName.Contains(SearchString)).ToList();
+                suppliers=suppliers.Where( s => s.Name.ToLower().Contains(SearchString.ToLower())).ToList();
             }
             return View(suppliers);
         }

@@ -63,9 +63,9 @@ namespace SupplierMVC.Controllers
         {
             ProductDetailsModel modeldata=new ProductDetailsModel();
             modeldata.Product= await _services.GetProductData(id);
-            modeldata.brand = await _services.GetBrandData(modeldata.Product.BrandId);
-            modeldata.Supplier= await _services.GetSupplierData(modeldata.Product.SupplierId);
-            modeldata.category= await _services.GetCategoryData(modeldata.Product.CategoryId);
+            modeldata.brand = await _services.GetBrandData(modeldata.Product.Id);
+            modeldata.Supplier= await _services.GetSupplierData(modeldata.Product.Id);
+            modeldata.category= await _services.GetCategoryData(modeldata.Product.Id);
             return modeldata;
 
 
@@ -79,7 +79,7 @@ namespace SupplierMVC.Controllers
              product = await _services.GetProduct();
             if (!String.IsNullOrEmpty(SearchString))
             {
-                product = product.Where(p => p.product_Name!.Contains(SearchString)).ToList();
+                product = product.Where(p => p.Name!.ToLower().Contains(SearchString.ToLower())).ToList();
             }
             //var data = await _services.GetProductData();
 
@@ -87,9 +87,9 @@ namespace SupplierMVC.Controllers
             {
                 ProductViewModel pvModel = new ProductViewModel();
                 pvModel.product = p;
-                pvModel.Supplier = await _services.GetSupplierData(p.SupplierId);
-                pvModel.Brand = await _services.GetBrandData(p.BrandId);
-                pvModel.Category = await _services.GetCategoryData(p.CategoryId);
+                pvModel.Supplier = await _services.GetSupplierData(p.Id);
+                pvModel.Brand = await _services.GetBrandData(p.Id);
+                pvModel.Category = await _services.GetCategoryData(p.Id);
                 _productViewModels.Add(pvModel);
             }
             return _productViewModels;
@@ -121,7 +121,7 @@ namespace SupplierMVC.Controllers
                 return RedirectToAction("Index");
             }
             ProductCreateModel model = new ProductCreateModel();
-            model.productData = await _services.GetProductData(product.productData.product_Id);
+            model.productData = await _services.GetProductData(product.productData.Id);
             model.brands = await _services.GetBrandData();
             model.categories = await _services.GetCategoryData();
             model.suppliers = await _services.GetSupplierData();

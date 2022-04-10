@@ -20,7 +20,7 @@ namespace SupplierMVC.Controllers
             var brands=await _services.GetBrandData();
             if (!String.IsNullOrEmpty(SearchString))
             {
-                brands=brands.Where(b => b.BrandName.Contains(SearchString)).ToList();
+                brands=brands.Where(b => b.Name.ToLower().Contains(SearchString.ToLower())).ToList();
             }
             return View(brands);
         }

@@ -12,13 +12,13 @@ namespace SupplierAPI.Migrations
                 name: "Brands",
                 columns: table => new
                 {
-                    BrandId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     BrandName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Brands", x => x.BrandId);
+                    table.PrimaryKey("PK_Brands", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -58,7 +58,7 @@ namespace SupplierAPI.Migrations
                     product_Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     product_Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BrandId = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false),
                     SupplierId = table.Column<int>(type: "int", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     product_price = table.Column<double>(type: "float", nullable: false)
@@ -67,10 +67,10 @@ namespace SupplierAPI.Migrations
                 {
                     table.PrimaryKey("PK_Products", x => x.product_Id);
                     table.ForeignKey(
-                        name: "FK_Products_Brands_BrandId",
-                        column: x => x.BrandId,
+                        name: "FK_Products_Brands_Id",
+                        column: x => x.Id,
                         principalTable: "Brands",
-                        principalColumn: "BrandId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Products_Categories_CategoryId",
@@ -113,9 +113,9 @@ namespace SupplierAPI.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_BrandId",
+                name: "IX_Products_Id",
                 table: "Products",
-                column: "BrandId");
+                column: "Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",

@@ -6,8 +6,8 @@ namespace SupplierAPI.Models
     public class Product
     {
         [Key]
-        public int product_Id { get; set; }
-        public string product_Name { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
         public int BrandId { get; set; }
         public int SupplierId { get; set; }
         public int CategoryId { get; set; }

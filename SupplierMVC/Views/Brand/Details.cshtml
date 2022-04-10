@@ -11,19 +11,19 @@
         <table style="width:400px" class="table table-bordered">
             <tbody>
                 <tr>
-                    <td>@Html.DisplayNameFor(model => model.BrandId)</td>
-                    <td>@Html.DisplayFor(model => model.BrandId)</td>
+                    <td>@Html.DisplayNameFor(model => model.Id)</td>
+                    <td>@Html.DisplayFor(model => model.Id)</td>
                 </tr>
                 <tr>
-                    <td>@Html.DisplayNameFor(model => model.BrandName)</td>
-                    <td>@Html.DisplayFor(model => model.BrandName)</td>
+                    <td>@Html.DisplayNameFor(model => model.Name)</td>
+                    <td>@Html.DisplayFor(model => model.Name)</td>
                 </tr>
                
             </tbody>
         </table>
     </div>
     <div>
-        <a class="btn btn-success" asp-action="Edit" asp-route-id="@Model.BrandId">Edit</a> 
+        <a class="btn btn-success" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> 
         <a class="btn btn-primary" asp-action="Index">Back to List</a><br /><br />
     </div>
     <h2 class="text-info">Brand Product Details</h2>

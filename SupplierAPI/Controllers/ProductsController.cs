@@ -41,7 +41,7 @@ namespace SupplierAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProducts(int id, Product product)
         {
-            if (id != product.product_Id)
+            if (id != product.Id)
             {
                 return BadRequest();
             }
@@ -55,7 +55,7 @@ namespace SupplierAPI.Controllers
         public async Task<ActionResult<Product>> PostProducts(Product product)
         {
             var newProduct = await _services.Create(product);
-            return CreatedAtAction(nameof(GetProducts), new { id = newProduct.product_Id }, newProduct);
+            return CreatedAtAction(nameof(GetProducts), new { id = newProduct.Id }, newProduct);
 
         }
 

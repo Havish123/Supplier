@@ -5,8 +5,8 @@ namespace SupplierAPI.Models
     public class Brand
     {
         [Key]
-        public int BrandId { get; set; }
-        public string BrandName { get; set; }   
+        public int Id { get; set; }
+        public string Name { get; set; }   
         public virtual ICollection<Product> Products { get; set; }
     }
 }

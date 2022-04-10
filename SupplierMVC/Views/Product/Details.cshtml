@@ -13,28 +13,28 @@
         <table style="width:400px" class="table table-bordered">
             <tbody>
                 <tr>
-                    <td>@Html.DisplayNameFor(model => model.Product.product_Id)</td>
-                    <td>@Html.DisplayFor(model => model.Product.product_Id)</td>
+                    <td>@Html.DisplayNameFor(model => model.Product.Id)</td>
+                    <td>@Html.DisplayFor(model => model.Product.Id)</td>
                 </tr>
                 <tr>
-                    <td>@Html.DisplayNameFor(model => model.Product.product_Name)</td>
-                    <td>@Html.DisplayFor(model => model.Product.product_Name)</td>
+                    <td>@Html.DisplayNameFor(model => model.Product.Name)</td>
+                    <td>@Html.DisplayFor(model => model.Product.Name)</td>
                 </tr>
                 <tr>
                     <td>@Html.DisplayNameFor(model => model.Product.product_price)</td>
                     <td>@Html.DisplayFor(model => model.Product.product_price)</td>
                 </tr>
                 <tr>
-                    <td>@Html.DisplayNameFor(model => model.Supplier.supplierName)</td>
-                    <td>@Html.DisplayFor(model => model.Supplier.supplierName)</td>
+                    <td>@Html.DisplayNameFor(model => model.Supplier.Name)</td>
+                    <td>@Html.DisplayFor(model => model.Supplier.Name)</td>
                 </tr>
                 <tr>
-                    <td>@Html.DisplayNameFor(model => model.category.CategoryName)</td>
-                    <td>@Html.DisplayFor(model => model.category.CategoryName)</td>
+                    <td>@Html.DisplayNameFor(model => model.category.Name)</td>
+                    <td>@Html.DisplayFor(model => model.category.Name)</td>
                 </tr>
                 <tr>
-                    <td>@Html.DisplayNameFor(model => model.brand.BrandName)</td>
-                    <td>@Html.DisplayFor(model => model.brand.BrandName)</td>
+                    <td>@Html.DisplayNameFor(model => model.brand.Name)</td>
+                    <td>@Html.DisplayFor(model => model.brand.Name)</td>
                 </tr>
                 <tr>
                     <td>@Html.DisplayNameFor(model => model.Product.inventory.stock_product_quantity)</td>
@@ -45,7 +45,7 @@
     </div>
     <br />
 <div>
-    <a asp-action="Edit" class="btn btn-success" asp-route-id="@Model.Product.product_Id">Edit</a>
+    <a asp-action="Edit" class="btn btn-success" asp-route-id="@Model.Product.Id">Edit</a>
     
     <a class="btn btn-primary" asp-action="Index">Back to List</a>
 </div>

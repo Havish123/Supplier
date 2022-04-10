@@ -41,7 +41,7 @@ namespace SupplierAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCategory(int id, Category category)
         {
-            if (id != category.CategoryId)
+            if (id != category.Id)
             {
                 return BadRequest();
             }
@@ -55,7 +55,7 @@ namespace SupplierAPI.Controllers
         public async Task<ActionResult<Category>> PostCategory(Category category)
         {
             var newCategory = await _services.Create(category);
-            return CreatedAtAction(nameof(GetCategory), new { id = newCategory.CategoryId }, newCategory);
+            return CreatedAtAction(nameof(GetCategory), new { id = newCategory.Id }, newCategory);
 
         }
 

@@ -5,8 +5,8 @@ namespace SupplierAPI.Models
     public class Supplier
     {
         [Key]
-        public int supplierId { get; set; }
-        public string supplierName { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
         public string supplierBulstat { get; set; }
         public string supplierAddress { get; set; }
         public string supplierEmail { get; set; }

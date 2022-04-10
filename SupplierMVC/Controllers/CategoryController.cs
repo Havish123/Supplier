@@ -20,7 +20,7 @@ namespace SupplierMVC.Controllers
             var categories = await _services.GetCategoryData();
             if (!String.IsNullOrEmpty(SearchString))
             {
-                categories = categories.Where(c => c.CategoryName.Contains(SearchString)).ToList();
+                categories = categories.Where(c => c.Name.ToLower().Contains(SearchString.ToLower())).ToList();
             }
             return View(categories);
         }

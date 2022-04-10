@@ -41,7 +41,7 @@ namespace SupplierAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBrand(int id, Brand brand)
         {
-            if (id != brand.BrandId)
+            if (id != brand.Id)
             {
                 return BadRequest();
             }
@@ -55,7 +55,7 @@ namespace SupplierAPI.Controllers
         public async Task<ActionResult<Category>> PostBrand(Brand brand)
         {
             var newBrand = await _services.Create(brand);
-            return CreatedAtAction(nameof(GetBrand), new { id = newBrand.BrandId }, newBrand);
+            return CreatedAtAction(nameof(GetBrand), new { id = newBrand.Id }, newBrand);
 
         }
 
