@@ -16,7 +16,7 @@
     <div class="col-4">
         <div class="input-group ">
             
-           <form class="input-group" asp-controller="Inventory" asp-action="Index">
+           <form class="input-group"  asp-controller="Inventory" asp-action="Index">
                 <select asp-for="product.Id" name="id" asp-items="Model.products.ToSelectedListItem<ProductData>()" id="Product" class="form-control"></select>
             
                         <button class="btn btn-outline-secondary d-flex" type="submit" id="button-addon2">Get Product Data </button>
@@ -26,55 +26,6 @@
   </div>
   <hr />
   <br>
-@if (Model.product.Id == 0)
-{
-    <table>
-        <td>Please Choose the Product </td>
-    </table>
-}
-else
-{
-    <div >
-        <form action="Edit">
-      <div class="form-group  row">
-            <div class="col-2">
-                <label asp-for="product.Name"></label>
-            </div>
-            <div class="col-4">
-                <input asp-for="product.Name"  class="form-control"></input>
-                <span asp-validation-for="product.Name" class="text-danger"></span>
-            </div>
-        </div>
-        <br />
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="product.product_price"></label>
-            </div>
-            <div class="col-4">
-                <input asp-for="product.product_price"  class="form-control"></input>
-                <span asp-validation-for="product.product_price" class="text-danger"></span>
-            </div>
-        </div>
-        <br />
-
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="inventory.stock_product_quantity"></label>
-            </div>
-            <div class="col-4">
-                <input asp-for="inventory.stock_product_quantity"  class="form-control"></input>
-                <span asp-validation-for="inventory.stock_product_quantity" class="text-danger"></span>
-            </div>
-        </div>
-        <br />
-       
-
-        <div>
-            <button class="btn btn-primary">Submit</button>
-        </div>
-  </form>
-    </div>
-    
-}
+<partial name="Edit" model="Model" />
 
   

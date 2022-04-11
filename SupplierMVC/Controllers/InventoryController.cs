@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SupplierMVC.Models;
 using SupplierMVC.Models.ViewModel;
 using SupplierMVC.Services;
 
@@ -31,6 +32,24 @@ namespace SupplierMVC.Controllers
                 model.product = await _services.GetProductData(id);
             }
             
+            return View(model);
+        }
+        
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(InventoryData inventory)
+        {
+
+            var result = _services.EditInventoryData(inventory);
+            if (result)
+            {
+                return RedirectToAction("Index");
+            }
+            //ProductCreateModel model = new ProductCreateModel();
+            //model.productData = await _services.GetProductData(product.productData.Id);
+            //model.brands = await _services.GetBrandData();
+            //model.categories = await _services.GetCategoryData();
+            //model.suppliers = await _services.GetSupplierData();
             return View(model);
         }
     }

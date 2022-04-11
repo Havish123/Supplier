@@ -12,7 +12,7 @@ namespace SupplierMVC.Models
         public int BrandId { get; set; }
         public int SupplierId { get; set; }
         public int CategoryId { get; set; }
-        [Display(Name ="Price")]
+        [Display(Name ="Price")]        
         public double product_price { get; set; }
 
        

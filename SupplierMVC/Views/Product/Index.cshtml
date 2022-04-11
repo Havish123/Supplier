@@ -1,4 +1,5 @@
-﻿@model IEnumerable<SupplierMVC.Models.ProductViewModel>
+﻿@using System.Globalization
+@model IEnumerable<SupplierMVC.Models.ProductViewModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -45,6 +46,7 @@
     <tbody>
 @foreach (var item in Model) 
 {
+    @*value.ToString("C3", new CultureInfo("en-US"))*@
         <tr>
             <td>@Html.DisplayFor(model => item.product.Id)</td>
             <td>@Html.DisplayFor(model => item.product.Name)</td>

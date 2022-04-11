@@ -26,11 +26,11 @@
     <br />
     <div class="form-group row">
         <div class="col-2">
-            <label asp-for="productData.Id"></label>
+            <label asp-for="productData.CategoryId"></label>
         </div>
         <div class="col-4">
-            <select asp-for="productData.Id" asp-items="Model.categories.ToSelectedListItem<CategoryData>()" id="Category" class="form-control"></select>
-            <span asp-validation-for="productData.Id" class="text-danger"></span>
+            <select asp-for="productData.CategoryId" asp-items="Model.categories.ToSelectedListItem<CategoryData>()" id="Category" class="form-control"></select>
+            <span asp-validation-for="productData.CategoryId" class="text-danger"></span>
             </div>
         </div>
     <br />
@@ -40,8 +40,8 @@
             <label asp-for="brands"></label>
         </div>
         <div class="col-4">
-            <select asp-for="productData.Id" asp-items="Model.brands.ToSelectedListItem<BrandData>()" id="BrandData" class="form-control"></select>
-            <span asp-validation-for="productData.Id" class="text-danger"></span>
+            <select asp-for="productData.BrandId" asp-items="Model.brands.ToSelectedListItem<BrandData>()" id="BrandData" class="form-control"></select>
+            <span asp-validation-for="productData.BrandId" class="text-danger"></span>
             </div></div>
     <br />
     <div class="form-group row">
@@ -49,8 +49,8 @@
             <label asp-for="suppliers"></label>
         </div>
         <div class="col-4">
-            <select asp-for="productData.Id" asp-items="Model.suppliers.ToSelectedListItem<SupplierData>()" id="SupplierData" class="form-control"></select>
-            <span asp-validation-for="productData.Id" class="text-danger"></span>
+            <select asp-for="productData.SupplierId" asp-items="Model.suppliers.ToSelectedListItem<SupplierData>()" id="SupplierData" class="form-control"></select>
+            <span asp-validation-for="productData.SupplierId" class="text-danger"></span>
             </div></div>
     <br />
 
@@ -63,6 +63,8 @@
             <span asp-validation-for="productData.product_price" class="text-danger"></span>
         </div></div>
     <br />
+    @Html.HiddenFor(m=>m.productData.inventory.Id)
+    @Html.HiddenFor(m=>m.productData.inventory.ProductId)
 
     <div class="form-group row">
         <div class="col-2">

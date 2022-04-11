@@ -116,7 +116,8 @@ namespace SupplierMVC.Controllers
         {
             
             var result = _services.EditProductData(product.productData);
-            if (result)
+            var res = _services.EditInventoryData(product.productData.inventory);
+            if (result && res)
             {
                 return RedirectToAction("Index");
             }
